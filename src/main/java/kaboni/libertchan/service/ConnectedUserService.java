@@ -1,5 +1,6 @@
 package kaboni.libertchan.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,15 @@ public class ConnectedUserService {
 	
 	public Optional<ConnectedUser> findByEmail(String email) {
 		return repository.findByEmail(email);
+
 	}
+	
+	public Optional<ConnectedUser> findById(Long id){
+		return repository.findById(id);
+	}
+	
+	public List<ConnectedUser> findAll(){
+		return repository.findAll();
+	}
+	
 }
