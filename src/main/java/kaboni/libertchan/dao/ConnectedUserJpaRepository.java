@@ -10,4 +10,5 @@ import kaboni.libertchan.models.ConnectedUser;
 @Repository
 public interface ConnectedUserJpaRepository extends JpaRepository<ConnectedUser, Integer> {
 	public Optional<ConnectedUser> findByEmail(String email);
+	public Optional<ConnectedUser> findById(Long id);
 }
