@@ -9,7 +9,7 @@ public class ConnectedUser {
 	@GeneratedValue
 	private Long id;
 	
-	@Column
+	@Column(name = "mail")
 	private String email;
 	
 	@Column
