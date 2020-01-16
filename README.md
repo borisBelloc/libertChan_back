@@ -19,7 +19,6 @@ Front | Back
 ----------
 
 ### Project Setting (BACK) Developer profile for JDM.
-
 _allow to use custom username/password_
 
 * create file `application-dev.properties` inside src/main/resources
