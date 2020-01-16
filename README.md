@@ -28,6 +28,7 @@ _allow to use custom username/password_
 spring.datasource.username=postgres
 spring.datasource.password=password
   </details>
+  
 * open JDM setting : 
   - properties > Run/Debug Setting > New
   - inside `Arguments tab` add `-Dspring.profiles.active=dev` inside `VM arguments`
