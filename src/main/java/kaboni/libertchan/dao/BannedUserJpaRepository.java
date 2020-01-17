@@ -12,7 +12,8 @@ import kaboni.libertchan.models.BannedUser;
 
 	@Repository
 	public interface BannedUserJpaRepository extends JpaRepository<BannedUser, Integer> {
-		public Optional<kaboni.libertchan.models.BannedUser> findByIp(String Ip);
+		public Optional<kaboni.libertchan.models.BannedUser> findByIp(String ip);
+		public Optional<kaboni.libertchan.models.BannedUser> findById(long id);
 	}
 
 

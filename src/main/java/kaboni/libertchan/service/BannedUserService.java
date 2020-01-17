@@ -1,5 +1,6 @@
 package kaboni.libertchan.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import kaboni.libertchan.dao.BannedUserJpaRepository;
 import kaboni.libertchan.models.BannedUser;
+
 
 @Service
 public class BannedUserService {
@@ -17,5 +19,12 @@ public class BannedUserService {
 	public Optional<BannedUser> findByIp(String ip) {
 		return repository.findByIp(ip);
 	}
+	
+	public Optional<BannedUser> findById(Long id){
+		return repository.findById(id);
+	}
+	
+	
+	
 
 }
