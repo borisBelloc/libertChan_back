@@ -88,11 +88,11 @@ public class Message {
 		this.image = image;
 	}
 
-	public Thread getThread() {
+	public DiscussionThread getThread() {
 		return thread;
 	}
 
-	public void setThread(Thread thread) {
+	public void setThread(DiscussionThread thread) {
 		this.thread = thread;
 	}
 
