@@ -22,6 +22,8 @@ public class BannedUserController {
 	private BannedUserService service;
 	
 	@RequestMapping(method = RequestMethod.GET)
+	
+	
 	public List<BannedUser> findAll(){
 		return service.findAll();
 	}
