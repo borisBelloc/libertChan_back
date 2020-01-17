@@ -10,28 +10,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import kaboni.libertchan.models.ConnectedUser;
-import kaboni.libertchan.service.ConnectedUserService;
+import kaboni.libertchan.models.Message;
+import kaboni.libertchan.service.MessageService;
 
 @RestController
-@RequestMapping("/users")
-public class ConnectedUserController {
-
-	@Autowired
-	private ConnectedUserService service;
+@RequestMapping("/messages")
+public class MessageController {
 	
+	@Autowired
+	private MessageService service;
+
 	@RequestMapping(method = RequestMethod.GET)
-	public List<ConnectedUser> findAll() {
+	public List<Message> findAll() {
 		return service.findAll();
 	}
 	
-	@GetMapping("/email/{email}/")
-	public ConnectedUser findByEmail(@PathVariable String email) {
-		return service.findByEmail(email).orElse(null);
+	@GetMapping("/number/{postNumber}")
+	public Message findByEmail(@PathVariable Long postNumber) {
+		return service.findByPostNumber(postNumber).orElse(null);
 	}
 	
 	@GetMapping("/{id}")
-	public ConnectedUser findById(@PathVariable Long id) {
+	public Message findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
 	}
-	
 }

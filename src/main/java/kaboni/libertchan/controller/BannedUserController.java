@@ -13,7 +13,7 @@ import kaboni.libertchan.models.BannedUser;
 import kaboni.libertchan.service.BannedUserService;
 
 @RestController
-@RequestMapping("/api/users/banned")
+@RequestMapping("/users/banned")
 public class BannedUserController {
 
 	@Autowired
