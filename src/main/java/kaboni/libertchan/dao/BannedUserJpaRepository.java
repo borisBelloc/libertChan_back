@@ -8,12 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import kaboni.libertchan.models.BannedUser;
 
-
-
-	@Repository
-	public interface BannedUserJpaRepository extends JpaRepository<BannedUser, Integer> {
-		public Optional<kaboni.libertchan.models.BannedUser> findByIp(String ip);
-		public Optional<kaboni.libertchan.models.BannedUser> findById(long id);
-	}
-
-
+@Repository
+public interface BannedUserJpaRepository extends JpaRepository<BannedUser, Integer> {
+		public Optional<BannedUser> findByIp(String ip);
+		public Optional<BannedUser> findById(Long id);
+}

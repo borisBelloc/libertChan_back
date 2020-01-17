@@ -16,5 +16,8 @@ public class ReservedPseudo {
 	
 	@Column
 	private LocalDate expirationDate;
+	
+	@ManyToOne
+	private ConnectedUser user;
 
 }
