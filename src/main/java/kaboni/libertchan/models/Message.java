@@ -32,7 +32,7 @@ public class Message {
 	private Image image;
 	
 	@ManyToOne
-	private Thread thread;
+	private DiscussionThread thread;
 	
 	@OneToOne
 	private ConnectedUser user;

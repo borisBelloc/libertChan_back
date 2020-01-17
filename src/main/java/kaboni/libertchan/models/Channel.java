@@ -27,6 +27,6 @@ public class Channel {
 	private Long maxTimeWithoutPost;
 	
 	@OneToMany
-	private List<Thread> threads;
+	private List<DiscussionThread> threads;
 	
 }
