@@ -1,6 +1,5 @@
 package kaboni.libertchan.controller;
 
-import java.nio.channels.Channel;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import kaboni.libertchan.models.Channel;
 import kaboni.libertchan.service.ChannelService;
 
 @RestController

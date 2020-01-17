@@ -1,6 +1,5 @@
 package kaboni.libertchan.service;
 
-import java.nio.channels.Channel;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kaboni.libertchan.dao.ChannelJpaRepository;
+import kaboni.libertchan.models.Channel;
 
 @Service
 public class ChannelService {
