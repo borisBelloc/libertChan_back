@@ -21,7 +21,14 @@ public class DiscussionThreadService {
 	
 	public Optional<DiscussionThread> findByThreadId(Long id) {
 		return repository.findById(id);
-		
+	}
+	
+	public DiscussionThread save(DiscussionThread discussionThread) {
+		return repository.save(discussionThread);
+	}
+	
+	public void delete(DiscussionThread discussionThread) {
+		repository.delete(discussionThread);
 	}
 
 }
