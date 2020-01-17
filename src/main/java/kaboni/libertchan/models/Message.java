@@ -35,7 +35,7 @@ public class Message {
 	private Image image;
 	
 	@ManyToOne
-	private DiscussionThread thread;
+	private DiscussionThread discussionThread;
 	
 	@OneToOne
 	private ConnectedUser user;
@@ -88,12 +88,12 @@ public class Message {
 		this.image = image;
 	}
 
-	public DiscussionThread getThread() {
-		return thread;
+	public DiscussionThread getDiscussionThread() {
+		return discussionThread;
 	}
 
-	public void setThread(DiscussionThread thread) {
-		this.thread = thread;
+	public void setDiscussionThread(DiscussionThread discussionThread) {
+		this.discussionThread = discussionThread;
 	}
 
 	public ConnectedUser getUser() {
