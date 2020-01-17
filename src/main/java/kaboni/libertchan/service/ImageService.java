@@ -27,7 +27,7 @@ public class ImageService {
 		return repository.save(image);
 	}
 	
-	public void remove(Image image) {
+	public void delete(Image image) {
 		repository.delete(image);
 	}
 	

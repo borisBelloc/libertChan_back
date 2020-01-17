@@ -1,5 +1,6 @@
 package kaboni.libertchan.controller;
 
+import java.nio.channels.Channel;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,34 +10,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import kaboni.libertchan.models.Image;
-import kaboni.libertchan.service.ImageService;
+import kaboni.libertchan.service.ChannelService;
 
 @RestController
-@RequestMapping("/images")
-public class ImageController {
-	
+@RequestMapping("/channels")
+public class ChannelController {
+
 	@Autowired
-	private ImageService service;
+	private ChannelService service;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Image> findAll() {
+	public List<Channel> findAll() {
 		return service.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Image findById(@PathVariable Long id) {
+	public Channel findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public Image save(@PathVariable Image image) {
-		return service.save(image);
+	public Channel save(@PathVariable Channel channel) {
+		return service.save(channel);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE)
-	public void delete(@PathVariable Image image) {
-		service.delete(image);
+	public void delete(@PathVariable Channel channel) {
+		service.delete(channel);
 	}
 	
 }
