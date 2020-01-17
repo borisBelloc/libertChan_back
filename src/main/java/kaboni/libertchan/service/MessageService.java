@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kaboni.libertchan.dao.MessageJpaRepository;
+import kaboni.libertchan.models.Image;
 import kaboni.libertchan.models.Message;
 
 @Service
@@ -30,6 +31,10 @@ public class MessageService {
 	
 	public Message save(Message message) {
 		return repository.save(message);
+	}
+	
+	public void delete(Message message) {
+		repository.delete(message);
 	}
 	
 }

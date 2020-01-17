@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import kaboni.libertchan.models.Image;
 import kaboni.libertchan.models.Message;
 import kaboni.libertchan.service.MessageService;
 
@@ -38,6 +39,11 @@ public class MessageController {
 	@RequestMapping(method = RequestMethod.POST)
 	public Message save(@RequestBody Message message) {
 		return service.save(message);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE)
+	public void delete(@PathVariable Message message) {
+		service.delete(message);
 	}
 	
 }
