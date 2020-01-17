@@ -1,6 +1,5 @@
 package kaboni.libertchan.dao;
 
-import java.util.List;
 import java.util.Optional;
 
 
