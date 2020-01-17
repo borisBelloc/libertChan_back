@@ -17,7 +17,7 @@ public class MyCustomErrorController implements ErrorController {
       Exception exception = (Exception) request.getAttribute("javax.servlet.error.exception");
       return String.format("<html><body><h2>Error Page</h2><div>Status code: <b>%s</b></div>"
                       + "<div>Exception Message: <b>%s</b></div><body></html>",
-              statusCode, exception==null? "T BIEN SUR LA PAGE : <a href=\"http://localhost:8080/api/users/\">http://localhost:8080/api/users/</a> ?": exception.getMessage());
+              statusCode, exception==null? "VERIFIE TON URL : <a href=\"http://localhost:8080/api/users/\">http://localhost:8080/api/users/</a> ?": exception.getMessage());
   }
 
   @Override
