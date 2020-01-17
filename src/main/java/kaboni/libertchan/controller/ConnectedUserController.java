@@ -14,7 +14,7 @@ import kaboni.libertchan.models.ConnectedUser;
 import kaboni.libertchan.service.ConnectedUserService;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class ConnectedUserController {
 
 	@Autowired

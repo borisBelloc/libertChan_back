@@ -23,6 +23,11 @@ public class BannedUserService {
 	public Optional<BannedUser> findById(Long id){
 		return repository.findById(id);
 	}
+
+	public List<BannedUser> findAll() {
+		
+		return repository.findAll();
+	}
 	
 	
 	

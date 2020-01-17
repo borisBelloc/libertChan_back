@@ -1,5 +1,6 @@
 package kaboni.libertchan.dao;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -14,6 +15,7 @@ import kaboni.libertchan.models.BannedUser;
 	public interface BannedUserJpaRepository extends JpaRepository<BannedUser, Integer> {
 		public Optional<kaboni.libertchan.models.BannedUser> findByIp(String ip);
 		public Optional<kaboni.libertchan.models.BannedUser> findById(long id);
+		public List<BannedUser> findAll();
 	}
 
 
