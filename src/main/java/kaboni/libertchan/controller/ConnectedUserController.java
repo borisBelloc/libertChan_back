@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kaboni.libertchan.models.ConnectedUser;
@@ -24,7 +25,7 @@ public class ConnectedUserController {
 		return service.findAll();
 	}
 	
-	@GetMapping("/email/{email}")
+	@GetMapping("/email/{email}/")
 	public ConnectedUser findByEmail(@PathVariable String email) {
 		return service.findByEmail(email).orElse(null);
 	}
