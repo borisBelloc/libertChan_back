@@ -28,4 +28,8 @@ public class MessageService {
 		return repository.findAll();
 	}
 	
+	public Message save(Message message) {
+		return repository.save(message);
+	}
+	
 }

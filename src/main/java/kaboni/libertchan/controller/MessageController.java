@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import kaboni.libertchan.models.ConnectedUser;
 import kaboni.libertchan.models.Message;
 import kaboni.libertchan.service.MessageService;
 
@@ -34,4 +34,10 @@ public class MessageController {
 	public Message findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
 	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public Message save(@RequestBody Message message) {
+		return service.save(message);
+	}
+	
 }
