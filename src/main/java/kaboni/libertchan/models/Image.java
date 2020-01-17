@@ -14,10 +14,13 @@ public class Image {
 	private Long id;
 	
 	@Column
+	private String imageLocation;
+	
+	@Column
 	private String uniqueSignature;
 	
 	@Column
-	private String name;
+	private String imageName;
 	
 	@Column
 	private String extension;

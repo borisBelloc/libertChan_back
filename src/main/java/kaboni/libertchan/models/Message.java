@@ -27,6 +27,9 @@ public class Message {
 	@Column
 	private String author;
 	
+	@Column
+	private Boolean isFirstMessage;
+	
 	@OneToOne
 	@NotFound(action=NotFoundAction.IGNORE)
 	private Image image;

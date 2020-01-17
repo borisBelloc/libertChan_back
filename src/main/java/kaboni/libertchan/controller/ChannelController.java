@@ -3,39 +3,40 @@ package kaboni.libertchan.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import kaboni.libertchan.models.BannedUser;
-
-import kaboni.libertchan.service.BannedUserService;
+import kaboni.libertchan.models.Channel;
+import kaboni.libertchan.service.ChannelService;
 
 @RestController
-@RequestMapping("/users/banned")
-public class BannedUserController {
+@RequestMapping("/channels")
+public class ChannelController {
 
 	@Autowired
-	private BannedUserService service;
+	private ChannelService service;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	
-	
-	public List<BannedUser> findAll(){
+	public List<Channel> findAll() {
 		return service.findAll();
 	}
-
-	@GetMapping("/ip/{ip}")
-	public BannedUser findByIp(@PathVariable String ip) {
-		return service.findByIp(ip).orElse(null);
-	}
-
-	@GetMapping("/{id}/")
-	public BannedUser findById(@PathVariable Long id) {
+	
+	@GetMapping("/{id}")
+	public Channel findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
 	}
-
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public Channel save(@PathVariable Channel channel) {
+		return service.save(channel);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE)
+	public void delete(@PathVariable Channel channel) {
+		service.delete(channel);
+	}
+	
 }
