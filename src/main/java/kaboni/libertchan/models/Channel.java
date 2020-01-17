@@ -28,5 +28,61 @@ public class Channel {
 	
 	@OneToMany
 	private List<Thread> threads;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTheme() {
+		return theme;
+	}
+
+	public void setTheme(String theme) {
+		this.theme = theme;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getShortName() {
+		return shortName;
+	}
+
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
+	}
+
+	public Integer getMessageMaxByThread() {
+		return messageMaxByThread;
+	}
+
+	public void setMessageMaxByThread(Integer messageMaxByThread) {
+		this.messageMaxByThread = messageMaxByThread;
+	}
+
+	public Long getMaxTimeWithoutPost() {
+		return maxTimeWithoutPost;
+	}
+
+	public void setMaxTimeWithoutPost(Long maxTimeWithoutPost) {
+		this.maxTimeWithoutPost = maxTimeWithoutPost;
+	}
+
+	public List<Thread> getThreads() {
+		return threads;
+	}
+
+	public void setThreads(List<Thread> threads) {
+		this.threads = threads;
+	}
 	
 }

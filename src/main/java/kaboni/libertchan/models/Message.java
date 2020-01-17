@@ -40,4 +40,68 @@ public class Message {
 	@OneToOne
 	private ConnectedUser user;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Long getPostNumber() {
+		return postNumber;
+	}
+
+	public void setPostNumber(Long postNumber) {
+		this.postNumber = postNumber;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Boolean getIsFirstMessage() {
+		return isFirstMessage;
+	}
+
+	public void setIsFirstMessage(Boolean isFirstMessage) {
+		this.isFirstMessage = isFirstMessage;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
+	public Thread getThread() {
+		return thread;
+	}
+
+	public void setThread(Thread thread) {
+		this.thread = thread;
+	}
+
+	public ConnectedUser getUser() {
+		return user;
+	}
+
+	public void setUser(ConnectedUser user) {
+		this.user = user;
+	}
+
 }
