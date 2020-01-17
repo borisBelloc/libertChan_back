@@ -1,5 +1,7 @@
 package kaboni.libertchan.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,6 +25,12 @@ public class ConnectedUser {
 	
 	@Column
 	private Integer accessLevel;
+	
+	@OneToMany
+	private List<Message> messages;
+	
+	@ManyToOne
+	private Role role;
 
 	public Long getId() {
 		return id;

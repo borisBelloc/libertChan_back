@@ -1,9 +1,8 @@
 package kaboni.libertchan.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.util.List;
+
+import javax.persistence.*;
 
 @Entity
 public class Channel {
@@ -26,5 +25,8 @@ public class Channel {
 	
 	@Column
 	private Long maxTimeWithoutPost;
+	
+	@OneToMany
+	private List<Thread> threads;
 	
 }

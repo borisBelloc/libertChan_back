@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 import kaboni.libertchan.models.ConnectedUser;
 
 @Repository
-public interface ConnectedUserJpaRepository extends JpaRepository<ConnectedUser, Integer> {
+public interface ConnectedUserJpaRepository extends JpaRepository<ConnectedUser, Long> {
 	public Optional<ConnectedUser> findByEmail(String email);
-	public Optional<ConnectedUser> findById(Long id);
-	public List<ConnectedUser> findAll();
 }
