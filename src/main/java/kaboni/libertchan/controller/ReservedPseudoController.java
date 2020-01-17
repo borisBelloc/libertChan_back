@@ -26,7 +26,7 @@ public class ReservedPseudoController {
 			
 		}
 	
-	@GetMapping("/{pseudo}")
+	@GetMapping("/pseudo/{pseudo}")
 	public ReservedPseudo findByPseudo(@PathVariable String pseudo) {
 		return service.findByPseudo(pseudo).orElse(null);
 	}
