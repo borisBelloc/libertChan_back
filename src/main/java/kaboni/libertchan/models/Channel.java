@@ -11,9 +11,6 @@ public class Channel {
 	@GeneratedValue
 	private Long id;
 	
-	@Column 
-	private String theme;
-	
 	@Column
 	private String name;
 	
@@ -35,14 +32,6 @@ public class Channel {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getTheme() {
-		return theme;
-	}
-
-	public void setTheme(String theme) {
-		this.theme = theme;
 	}
 
 	public String getName() {
