@@ -24,11 +24,14 @@ _allow to use custom username/password_
 * create file `application-dev.properties` inside src/main/resources
 * add customised credential for database
 <details>
-		  <summary>exemple</summary>
-`spring.datasource.username=postgres
-	
-spring.datasource.password=password`
-  </details>
+<summary>exemple</summary>
+   <pre>
+      <code>
+         spring.datasource.username=postgres
+         spring.datasource.password=password
+      </code>
+   </pre>
+</details>
   
 * open JDM setting : 
   - properties > Run/Debug Setting > New
