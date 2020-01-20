@@ -25,9 +25,9 @@ _allow to use custom username/password_
 * add customised credential for database
 <details>
 		  <summary>exemple</summary>
-spring.datasource.username=postgres
+`spring.datasource.username=postgres
 	
-spring.datasource.password=password
+spring.datasource.password=password`
   </details>
   
 * open JDM setting : 
