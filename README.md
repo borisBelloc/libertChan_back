@@ -26,6 +26,7 @@ _allow to use custom username/password_
 <details>
 		  <summary>exemple</summary>
 spring.datasource.username=postgres
+	
 spring.datasource.password=password
   </details>
   
