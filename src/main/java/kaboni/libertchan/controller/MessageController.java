@@ -27,7 +27,7 @@ public class MessageController {
 	}
 	
 	@GetMapping("/number/{postNumber}")
-	public Message findByEmail(@PathVariable Long postNumber) {
+	public Message findByPostNumber(@PathVariable Long postNumber) {
 		return service.findByPostNumber(postNumber).orElse(null);
 	}
 	
