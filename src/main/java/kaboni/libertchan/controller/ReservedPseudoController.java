@@ -15,7 +15,7 @@ import kaboni.libertchan.service.ReservedPseudoService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/users/reserved")
+@RequestMapping("/api/users/reserved")
 public class ReservedPseudoController {
 	
 	@Autowired

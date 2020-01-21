@@ -15,7 +15,7 @@ import kaboni.libertchan.service.ChannelService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/channels")
+@RequestMapping("/api/channels")
 public class ChannelController {
 
 	@Autowired

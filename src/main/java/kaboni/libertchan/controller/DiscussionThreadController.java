@@ -16,7 +16,7 @@ import kaboni.libertchan.service.DiscussionThreadService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/discussionthreads")
+@RequestMapping("/api/discussionthreads")
 public class DiscussionThreadController {
 
 	@Autowired
