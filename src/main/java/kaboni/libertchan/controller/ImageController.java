@@ -15,7 +15,7 @@ import kaboni.libertchan.service.ImageService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/images")
+@RequestMapping("/api/images")
 public class ImageController {
 	
 	@Autowired

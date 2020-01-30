@@ -16,7 +16,7 @@ import kaboni.libertchan.service.RoleService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/roles")
+@RequestMapping("/api/roles")
 public class RoleController {
 	
 	
