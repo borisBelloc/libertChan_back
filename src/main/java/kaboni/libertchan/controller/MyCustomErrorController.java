@@ -20,7 +20,7 @@ public class MyCustomErrorController implements ErrorController {
 						+ "<div>Exception Message: <b>%s</b></div><body></html>",
 				statusCode,
 				exception == null
-						? "VERIFIE TON URL : <br><br><h2>Localhost</h2><a href=\"http://localhost:8080/api/users/\">http://localhost:8080/api/users/</a>"
+						? "VERIFIE TON URL : <br><br><h2>Localhost</h2><a href=\"http://localhost:8080/api/channels\">http://localhost:8080/api/channels</a>"
 						: exception.getMessage());
 	}
 
