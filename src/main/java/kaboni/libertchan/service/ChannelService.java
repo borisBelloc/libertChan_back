@@ -31,5 +31,9 @@ public class ChannelService {
 	public void delete(Channel channel) {
 		repository.delete(channel);
 	}
+	
+	public Optional<Channel> findByShortName(String shortName) {
+		return repository.findByShortName(shortName);
+	}
 
 }

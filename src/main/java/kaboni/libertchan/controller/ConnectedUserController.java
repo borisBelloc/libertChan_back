@@ -26,7 +26,7 @@ public class ConnectedUserController {
 		return service.findAll();
 	}
 	
-	@GetMapping("/email/{email}/")
+	@GetMapping("/api/email/{email}/")
 	public ConnectedUser findByEmail(@PathVariable String email) {
 		return service.findByEmail(email).orElse(null);
 	}

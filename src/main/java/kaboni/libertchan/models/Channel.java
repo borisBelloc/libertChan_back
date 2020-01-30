@@ -23,6 +23,41 @@ public class Channel {
 	@Column
 	private Long maxTimeWithoutPost;
 	
+	@Column
+	private Boolean isPublic;
+	
+	@Column
+	private Boolean isModerated;
+	
+	@Column
+	private String shortDescription;
+	
+	
+	
+	public Boolean getIsPublic() {
+		return isPublic;
+	}
+
+	public void setIsPublic(Boolean isPublic) {
+		this.isPublic = isPublic;
+	}
+
+	public Boolean getIsModerated() {
+		return isModerated;
+	}
+
+	public void setIsModerated(Boolean isModerated) {
+		this.isModerated = isModerated;
+	}
+
+	public String getShortDescription() {
+		return shortDescription;
+	}
+
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
+
 	@OneToMany
 	private List<Thread> threads;
 

@@ -20,8 +20,8 @@ public class MyCustomErrorController implements ErrorController {
               statusCode, exception==null? "VERIFIE TON URL : <a href=\"http://localhost:8080/users/\">http://localhost:8080/users/</a> ?": exception.getMessage());
   }
 
-  @Override
-  public String getErrorPath() {
-      return "/error";
-  }
+	@Override
+	public String getErrorPath() {
+		return "/error";
+	}
 }

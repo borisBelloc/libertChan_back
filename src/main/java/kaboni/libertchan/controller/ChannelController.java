@@ -26,10 +26,12 @@ public class ChannelController {
 		return service.findAll();
 	}
 	
+	/*
 	@GetMapping("/{id}")
 	public Channel findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
 	}
+	*/
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public Channel save(@PathVariable Channel channel) {
@@ -39,6 +41,11 @@ public class ChannelController {
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@PathVariable Channel channel) {
 		service.delete(channel);
+	}
+	
+	@GetMapping("/{shortName}")
+	public Channel findByShortName(@PathVariable String shortName) {
+		return service.findByShortName(shortName).orElse(null);
 	}
 	
 }
