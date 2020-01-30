@@ -34,8 +34,6 @@ public class Channel {
 	
 	
 	
-	
-	
 	public Boolean getIsPublic() {
 		return isPublic;
 	}

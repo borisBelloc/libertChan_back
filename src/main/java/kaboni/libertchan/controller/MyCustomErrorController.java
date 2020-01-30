@@ -10,18 +10,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MyCustomErrorController implements ErrorController {
 
-  @RequestMapping("/error")
-  @ResponseBody
-  public String handleError(HttpServletRequest request) {
-      Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
-      Exception exception = (Exception) request.getAttribute("javax.servlet.error.exception");
-      return String.format("<html><body><h2>Error Page</h2><div>Status code: <b>%s</b></div>"
-                      + "<div>Exception Message: <b>%s</b></div><body></html>",
-              statusCode, exception==null? "VERIFIE TON URL : <a href=\"http://localhost:8080/users/\">http://localhost:8080/users/</a> ?": exception.getMessage());
-  }
+	@RequestMapping("/error")
+	@ResponseBody
+	public String handleError(HttpServletRequest request) {
+		Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
+		Exception exception = (Exception) request.getAttribute("javax.servlet.error.exception");
+		return String.format(
+				"<html><body><h2>Error Page</h2><div>Status code: <b>%s</b></div>"
+						+ "<div>Exception Message: <b>%s</b></div><body></html>",
+				statusCode,
+				exception == null
+						? "VERIFIE TON URL : <br><br><h2>Localhost</h2><a href=\"http://localhost:8080/api/users/\">http://localhost:8080/api/users/</a>"
+						: exception.getMessage());
+	}
 
-  @Override
-  public String getErrorPath() {
-      return "/error";
-  }
+	@Override
+	public String getErrorPath() {
+		return "/error";
+	}
 }
