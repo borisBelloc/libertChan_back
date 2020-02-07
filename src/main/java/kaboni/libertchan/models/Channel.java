@@ -10,7 +10,7 @@ public class Channel {
 //	TODO: Angular parcours l'enum Catégory pour 'menu déroulant' de choix lors de la creation d'un channel
 //	TODO: si besoin possibilité creer l'enum dans fichier externe
 	enum Category {
-		ADULT,
+		NSFW,
 		COMMUNITY,
 		INTEREST,
 		REGIONAL,
