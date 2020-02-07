@@ -7,6 +7,16 @@ import javax.persistence.*;
 @Entity
 public class Channel {
 	
+//	TODO: Angular parcours l'enum Catégory pour 'menu déroulant' de choix lors de la creation d'un channel
+//	TODO: si besoin possibilité creer l'enum dans fichier externe
+	enum Category {
+		NSFW,
+		COMMUNITY,
+		INTEREST,
+		REGIONAL,
+	}
+	
+	
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -32,6 +42,9 @@ public class Channel {
 	@Column
 	private String shortDescription;
 	
+	@Enumerated(EnumType.STRING)
+	@Column
+	private Category category;
 	
 	
 	public Boolean getIsPublic() {
@@ -108,5 +121,15 @@ public class Channel {
 	public void setThreads(List<Thread> threads) {
 		this.threads = threads;
 	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
+	
 	
 }
