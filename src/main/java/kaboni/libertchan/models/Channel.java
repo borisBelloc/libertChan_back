@@ -121,5 +121,15 @@ public class Channel {
 	public void setThreads(List<Thread> threads) {
 		this.threads = threads;
 	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
+	
 	
 }
