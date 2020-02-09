@@ -32,6 +32,10 @@ public class ConnectedUser {
 	@ManyToOne
 	private Role role;
 
+	public ConnectedUser(String mainPseudo, String password, String email, Role admin) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -1,5 +1,7 @@
 package kaboni.libertchan.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -7,13 +9,14 @@ import org.springframework.stereotype.Component;
 
 import kaboni.libertchan.dao.RightJpaRepository;
 import kaboni.libertchan.dao.RoleJpaRepository;
+import kaboni.libertchan.models.ConnectedUser;
 import kaboni.libertchan.models.Right;
 import kaboni.libertchan.models.Role;
 import kaboni.libertchan.service.ConnectedUserService;
 
 @Component
-public class initalizeData {
-private static final Logger LOG = LoggerFactory.getLogger(InitializeData.class);
+public class initializeData {
+private static final Logger LOG = LoggerFactory.getLogger(initializeData.class);
 	
 	@Autowired
 	private RightJpaRepository rightRepository;
@@ -53,14 +56,14 @@ private static final Logger LOG = LoggerFactory.getLogger(InitializeData.class);
 		roleRepository.save(user);
 		
 		// Users creation
-		User adminUser = new User("admin", "password", "Jean-Luc", "Adminne", "jl.adminne@ss.de", admin);
-		User moderatorUser = new User("moderator", "password", "Jean-Luc", "Modeau", "jl.modeau@ss.de", moderator);
-		User standardUser = new User("user", "password", "Jean-Luc", "Illouzeurt", "jl.illouzeurt@ss.de", user);
+		ConnectedUser adminUser = new ConnectedUser("admin", "password", "jl.adminne@ss.de", admin);
+		ConnectedUser moderatorUser = new ConnectedUser("moderator", "password", "jl.modeau@ss.de", moderator);
+		ConnectedUser standardUser = new ConnectedUser("user", "password", "jl.illouzeurt@ss.de", user);
 
 		try {
-			userService.create(adminUser);
-			userService.create(moderatorUser);
-			userService.create(standardUser);
+			connectedUserService.create(adminUser);
+			connectedUserService.create(moderatorUser);
+			connectedUserService.create(standardUser);
 		} catch (AlreadyExistsException e) {
 			LOG.warn("Unable to initialize data, users already exist.");
 		}
