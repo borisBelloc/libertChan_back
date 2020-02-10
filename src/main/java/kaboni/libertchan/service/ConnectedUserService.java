@@ -14,7 +14,7 @@ import kaboni.libertchan.models.ConnectedUser;
 import kaboni.libertchan.models.Role;
 
 @Service
-public class ConnectedUserService {
+public class ConnectedUserService  {
 	
 	@Autowired
 	private ConnectedUserJpaRepository repository;
@@ -63,7 +63,9 @@ public class ConnectedUserService {
 	}
 	
 	
-
+	public List<ConnectedUser> search(String mainPseudo, String password, String email, Role admin) {
+		return repository.searchUser(mainPseudo, password, email, admin);
+	}
 	
 	 
 	private void encodePassword(ConnectedUser user) {

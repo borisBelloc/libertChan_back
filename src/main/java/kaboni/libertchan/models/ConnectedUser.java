@@ -33,7 +33,10 @@ public class ConnectedUser {
 	private Role role;
 
 	public ConnectedUser(String mainPseudo, String password, String email, Role admin) {
-		// TODO Auto-generated constructor stub
+		this.mainPseudo = mainPseudo;
+		this.password = password;
+		this.email = email;
+		this.role = admin;
 	}
 
 	public Long getId() {
@@ -82,6 +85,11 @@ public class ConnectedUser {
 
 	public void setAccessLevel(Integer accessLevel) {
 		this.accessLevel = accessLevel;
+	}
+
+	public ConnectedUser orElse(Object object) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
