@@ -42,11 +42,25 @@ public class Channel {
 	@Column
 	private String shortDescription;
 	
+	@OneToMany
+	private List<Thread> threads;
+	
 	@Enumerated(EnumType.STRING)
 	@Column
 	private Category category;
 	
+	@Column
+	private String channelLogo;
 	
+	
+	public String getChannelLogo() {
+		return channelLogo;
+	}
+
+	public void setChannelLogo(String channelLogo) {
+		this.channelLogo = channelLogo;
+	}
+
 	public Boolean getIsPublic() {
 		return isPublic;
 	}
@@ -71,8 +85,6 @@ public class Channel {
 		this.shortDescription = shortDescription;
 	}
 
-	@OneToMany
-	private List<Thread> threads;
 
 	public Long getId() {
 		return id;
