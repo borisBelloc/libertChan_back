@@ -3,6 +3,7 @@ package kaboni.libertchan.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ public class MessageController {
 	@Autowired
 	private MessageService service;
 
+	@PreAuthorize("hasAuthority('READ_MESSAGES')")
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Message> findAll() {
 		return service.findAll();
@@ -36,12 +38,12 @@ public class MessageController {
 	public Message findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
 	}
-	
+	@PreAuthorize("hasAuthority('WRITE_MESSAGES')")
 	@RequestMapping(method = RequestMethod.POST)
 	public Message save(@RequestBody Message message) {
 		return service.save(message);
 	}
-	
+	@PreAuthorize("hasAuthority('DELET_MESSAGES')")
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@PathVariable Message message) {
 		service.delete(message);

@@ -48,12 +48,21 @@ private static final Logger LOG = LoggerFactory.getLogger(initializeData.class);
 		Role moderator = new Role("MODERATOR");
 		moderator.addRight(readUsers);
 		moderator.addRight(createUsers);
+		moderator.addRight(deleteUsers);
+		
+		
+		Role janitor = new Role("MODERATOR");
+		janitor.addRight(readUsers);
+		janitor.addRight(createUsers);
+		janitor.addRight(deleteUsers);
 		
 		Role user = new Role("USER");
 		user.addRight(readUsers);
+		user.addRight(createUsers);
 		
 		roleRepository.save(admin);
 		roleRepository.save(moderator);
+		roleRepository.save(janitor);
 		roleRepository.save(user);
 		
 		// Users creation

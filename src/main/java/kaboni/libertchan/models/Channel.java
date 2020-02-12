@@ -59,7 +59,7 @@ public class Channel {
 	}
 
 	@OneToMany
-	private List<Thread> threads;
+	private List<DiscussionThread> Discussionthreads;
 
 	public Long getId() {
 		return id;
@@ -101,12 +101,12 @@ public class Channel {
 		this.maxTimeWithoutPost = maxTimeWithoutPost;
 	}
 
-	public List<Thread> getThreads() {
-		return threads;
+	public List<DiscussionThread> getDiscussionThreads() {
+		return Discussionthreads;
 	}
 
-	public void setThreads(List<Thread> threads) {
-		this.threads = threads;
+	public void setDiscussionThreads(List<DiscussionThread> Discussionthreads) {
+		this.Discussionthreads = Discussionthreads;
 	}
 	
 }

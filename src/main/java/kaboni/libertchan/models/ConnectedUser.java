@@ -88,7 +88,12 @@ public class ConnectedUser {
 	}
 
 	public ConnectedUser orElse(Object object) {
-		// TODO Auto-generated method stub
+		
+		return null;
+	}
+
+	public Object getRole() {
+		
 		return null;
 	}
 	

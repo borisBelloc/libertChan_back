@@ -14,4 +14,8 @@ public interface ConnectedUserJpaRepository extends JpaRepository<ConnectedUser,
 	public Optional<ConnectedUser> findByEmail(String email);
 
 	public List<ConnectedUser> searchUser(String mainPseudo, String password, String email, Role admin);
+
+	
+
+	public Object findByMainPseudo(String mainPseudo);
 }
