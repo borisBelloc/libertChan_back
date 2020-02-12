@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import kaboni.libertchan.models.Image;
 import kaboni.libertchan.models.Message;
 import kaboni.libertchan.service.MessageService;
 
