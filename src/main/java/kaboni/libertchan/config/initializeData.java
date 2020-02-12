@@ -51,7 +51,7 @@ private static final Logger LOG = LoggerFactory.getLogger(initializeData.class);
 		moderator.addRight(deleteUsers);
 		
 		
-		Role janitor = new Role("MODERATOR");
+		Role janitor = new Role("JANITOR");
 		janitor.addRight(readUsers);
 		janitor.addRight(createUsers);
 		janitor.addRight(deleteUsers);
@@ -68,11 +68,13 @@ private static final Logger LOG = LoggerFactory.getLogger(initializeData.class);
 		// Users creation
 		ConnectedUser adminUser = new ConnectedUser("admin", "password", "jl.adminne@ss.de", admin);
 		ConnectedUser moderatorUser = new ConnectedUser("moderator", "password", "jl.modeau@ss.de", moderator);
+		ConnectedUser janitornUser = new ConnectedUser("janitor", "password", "jl.adminne@ss.fr", janitor);
 		ConnectedUser standardUser = new ConnectedUser("user", "password", "jl.illouzeurt@ss.de", user);
 
 		try {
 			connectedUserService.create(adminUser);
 			connectedUserService.create(moderatorUser);
+			connectedUserService.create(janitornUser);
 			connectedUserService.create(standardUser);
 		} catch (AlreadyExistsException e) {
 			LOG.warn("Unable to initialize data, users already exist.");

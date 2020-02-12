@@ -18,16 +18,16 @@ public class SecurityExpression {
 	private static final Logger LOG = LoggerFactory.getLogger(SecurityExpression.class);
 
 	@Autowired
-	private ConnectedUserService connectedUserService;
+	private ConnectedUserService UserService;
 	
 	public boolean isConnectedUser(Long id, UserDetails principal) {
 		boolean authorized = false;
 		
 		try {
-			ConnectedUser user = connectedUserService.findById(id);
+			ConnectedUser user = UserService.findById(id);
 			authorized = user.getMainPseudo().equals(principal.getUsername());
 
-		} catch (NotFoundException e) {
+		} catch (NotFoundException ) {
 		}
 		if (!authorized) {
 			LOG.warn("Malicious attempt to modify a password (connected : " + principal.getUsername() + ", victim : " + id);

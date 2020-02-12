@@ -3,6 +3,7 @@ package kaboni.libertchan.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ public class DiscussionThreadController {
 	@Autowired
 	private DiscussionThreadService service;
 	
+	@PreAuthorize("hasAuthority('READ_THREAD')")
 	@RequestMapping(method = RequestMethod.GET)
 	public List<DiscussionThread> findAll() {
 		return service.findAll();
@@ -32,11 +34,13 @@ public class DiscussionThreadController {
 		return service.findByThreadId(id).orElse(null);
 	}
 	
+	@PreAuthorize("hasAuthority('CREATE_THREAD')")
 	@RequestMapping(method = RequestMethod.POST)
 	public DiscussionThread save(@RequestBody DiscussionThread discussionThread) {
 		return service.save(discussionThread);
 	}
 	
+	@PreAuthorize("hasAuthority('DELETE_THREAD')")
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@PathVariable DiscussionThread discussionThread) {
 		service.delete(discussionThread);

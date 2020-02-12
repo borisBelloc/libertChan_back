@@ -17,5 +17,5 @@ public interface ConnectedUserJpaRepository extends JpaRepository<ConnectedUser,
 
 	
 
-	public Object findByMainPseudo(String mainPseudo);
+	public ConnectedUser findByMainPseudo(String mainPseudo);
 }
