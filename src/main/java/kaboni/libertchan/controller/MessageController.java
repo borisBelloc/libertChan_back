@@ -23,7 +23,7 @@ public class MessageController {
 	@Autowired
 	private MessageService service;
 
-	@PreAuthorize("hasAuthority('READ_MESSAGES')")
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Message> findAll() {
 		return service.findAll();
@@ -38,7 +38,7 @@ public class MessageController {
 	public Message findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
 	}
-	@PreAuthorize("hasAuthority('WRITE_MESSAGES')")
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public Message save(@RequestBody Message message) {
 		return service.save(message);

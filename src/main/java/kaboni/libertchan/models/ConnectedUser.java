@@ -87,14 +87,12 @@ public class ConnectedUser {
 		this.accessLevel = accessLevel;
 	}
 
-	public ConnectedUser orElse(Object object) {
-		
-		return null;
+	public Role getRole() {
+		return role;
 	}
 
-	public Object getRole() {
-		
-		return null;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 	

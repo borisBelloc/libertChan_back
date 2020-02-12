@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import exception.AlreadyExistsException;
-import javassist.NotFoundException;
+import exception.NotFoundException;
 import kaboni.libertchan.dao.ConnectedUserJpaRepository;
 import kaboni.libertchan.models.ConnectedUser;
 import kaboni.libertchan.models.Role;

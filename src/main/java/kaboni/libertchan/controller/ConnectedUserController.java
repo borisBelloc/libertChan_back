@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javassist.NotFoundException;
+import exception.NotFoundException;
 import kaboni.libertchan.models.ConnectedUser;
 import kaboni.libertchan.service.ConnectedUserService;
 
@@ -39,7 +39,7 @@ public class ConnectedUserController {
 	
 	@GetMapping("/{id}")
 	public ConnectedUser findById(@PathVariable Long id) throws NotFoundException {
-		return service.findById(id).orElse(null);
+		return service.findById(id);
 	}
 	@PutMapping("/{id}/password")
 	@PreAuthorize("hasRole('ADMIN') or @securityExpression.isConnectedUser(#id)")
