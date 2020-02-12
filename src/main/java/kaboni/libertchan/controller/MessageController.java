@@ -1,6 +1,7 @@
 package kaboni.libertchan.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,10 +23,18 @@ public class MessageController {
 	@Autowired
 	private MessageService service;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping("/all")
 	public List<Message> findAll() {
 		return service.findAll();
 	}
+	
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public List<Message> findAllByOrderByDateDesc() {
+		return service.findAllByOrderByDateDesc();
+	}
+	
+	
 	
 	@GetMapping("/number/{postNumber}")
 	public Message findByPostNumber(@PathVariable Long postNumber) {

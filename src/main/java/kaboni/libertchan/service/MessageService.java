@@ -15,9 +15,16 @@ public class MessageService {
 	@Autowired
 	private MessageJpaRepository repository;
 	
+	
+
+	public List<Message> findAllByOrderByDateDesc() {
+		return repository.findAllByOrderByDateDesc();
+	}
+	
+	
+	
 	public Optional<Message> findByPostNumber(Long postNumber) {
 		return repository.findByPostNumber(postNumber);
-
 	}
 	
 	public Optional<Message> findById(Long id){
