@@ -27,6 +27,7 @@ public class ConnectedUser {
 	private Integer accessLevel;
 	
 	@OneToMany
+	@JoinColumn(name = "connected_user_id")
 	private List<Message> messages;
 	
 	@ManyToOne

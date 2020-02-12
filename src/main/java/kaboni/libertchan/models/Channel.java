@@ -43,7 +43,8 @@ public class Channel {
 	private String shortDescription;
 	
 	@OneToMany
-	private List<Thread> threads;
+	@JoinColumn(name = "channel_id")
+	private List<DiscussionThread> threads;
 	
 	@Enumerated(EnumType.STRING)
 	@Column
@@ -126,11 +127,11 @@ public class Channel {
 		this.maxTimeWithoutPost = maxTimeWithoutPost;
 	}
 
-	public List<Thread> getThreads() {
+	public List<DiscussionThread> getThreads() {
 		return threads;
 	}
 
-	public void setThreads(List<Thread> threads) {
+	public void setThreads(List<DiscussionThread> threads) {
 		this.threads = threads;
 	}
 

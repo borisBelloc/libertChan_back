@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kaboni.libertchan.dao.MessageJpaRepository;
-import kaboni.libertchan.models.Image;
 import kaboni.libertchan.models.Message;
 
 @Service

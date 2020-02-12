@@ -2,6 +2,8 @@ package kaboni.libertchan.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import kaboni.libertchan.models.DiscussionThread;
+import kaboni.libertchan.models.Message;
 import kaboni.libertchan.service.DiscussionThreadService;
+import kaboni.libertchan.service.MessageService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -21,6 +25,11 @@ public class DiscussionThreadController {
 
 	@Autowired
 	private DiscussionThreadService service;
+	
+	@Autowired
+	private MessageService messageService;
+	
+	private static final Logger LOG = LoggerFactory.getLogger(DiscussionThreadController.class);
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<DiscussionThread> findAll() {
@@ -34,6 +43,12 @@ public class DiscussionThreadController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public DiscussionThread save(@RequestBody DiscussionThread discussionThread) {
+		LOG.warn("création d'un topic");
+		for(Message message : discussionThread.getMessages()) {
+			//LOG.warn(message.toString());
+			messageService.save(message);
+		}
+
 		return service.save(discussionThread);
 	}
 	

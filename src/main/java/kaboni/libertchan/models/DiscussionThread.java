@@ -32,7 +32,7 @@ public class DiscussionThread {
 	@Column
 	private Integer imageCount;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "discussionThread")
 	private List<Message> messages;
 	
 	@ManyToOne

@@ -1,10 +1,12 @@
 package kaboni.libertchan.models;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -30,11 +32,15 @@ public class Message {
 	@Column
 	private Boolean isFirstMessage;
 	
+	@Column
+	private String textContent;
+	
 	@OneToOne
 	@NotFound(action=NotFoundAction.IGNORE)
 	private Image image;
 	
 	@ManyToOne
+	@JoinColumn(name = "discussion_thread_id")
 	private DiscussionThread discussionThread;
 	
 	@OneToOne
@@ -102,6 +108,14 @@ public class Message {
 
 	public void setUser(ConnectedUser user) {
 		this.user = user;
+	}
+
+	public String getTextContent() {
+		return textContent;
+	}
+
+	public void setTextContent(String textContent) {
+		this.textContent = textContent;
 	}
 
 }
