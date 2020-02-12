@@ -2,6 +2,7 @@ package kaboni.libertchan.models;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,8 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Message {
@@ -35,10 +38,11 @@ public class Message {
 	@Column
 	private String textContent;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@NotFound(action=NotFoundAction.IGNORE)
 	private Image image;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "discussion_thread_id")
 	private DiscussionThread discussionThread;

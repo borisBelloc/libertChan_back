@@ -3,6 +3,7 @@ package kaboni.libertchan.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class DiscussionThread {
 	@Column
 	private Integer imageCount;
 	
-	@OneToMany(mappedBy = "discussionThread")
+	@OneToMany(mappedBy = "discussionThread", cascade = CascadeType.PERSIST)
 	private List<Message> messages;
 	
 	@ManyToOne

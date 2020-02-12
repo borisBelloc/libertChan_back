@@ -24,6 +24,9 @@ public class DiscussionThreadService {
 	}
 	
 	public DiscussionThread save(DiscussionThread discussionThread) {
+		discussionThread.getMessages().forEach(m ->
+			m.setDiscussionThread(discussionThread)
+		);
 		return repository.save(discussionThread);
 	}
 	

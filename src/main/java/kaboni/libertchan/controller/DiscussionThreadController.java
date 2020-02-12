@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import kaboni.libertchan.models.DiscussionThread;
-import kaboni.libertchan.models.Message;
 import kaboni.libertchan.service.DiscussionThreadService;
+import kaboni.libertchan.service.ImageService;
 import kaboni.libertchan.service.MessageService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,6 +29,9 @@ public class DiscussionThreadController {
 	@Autowired
 	private MessageService messageService;
 	
+	@Autowired
+	private ImageService imageService;
+	
 	private static final Logger LOG = LoggerFactory.getLogger(DiscussionThreadController.class);
 	
 	@RequestMapping(method = RequestMethod.GET)
@@ -41,17 +44,26 @@ public class DiscussionThreadController {
 		return service.findByThreadId(id).orElse(null);
 	}
 	
+	
 	@RequestMapping(method = RequestMethod.POST)
+	public DiscussionThread save(@RequestBody DiscussionThread discussionThread) {
+		LOG.warn("création d'un topic");
+		return service.save(discussionThread);
+	}
+	
+	
+	/*@RequestMapping(method = RequestMethod.POST)
 	public DiscussionThread save(@RequestBody DiscussionThread discussionThread) {
 		LOG.warn("création d'un topic");
 		for(Message message : discussionThread.getMessages()) {
 			//LOG.warn(message.toString());
+			message.setImage(imageService.save(message.getImage()));
 			messageService.save(message);
 		}
 
 		return service.save(discussionThread);
 	}
-	
+	*/
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@PathVariable DiscussionThread discussionThread) {
 		service.delete(discussionThread);
