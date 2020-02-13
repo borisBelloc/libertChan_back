@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import kaboni.libertchan.models.DiscussionThread;
 import kaboni.libertchan.models.Message;
+import kaboni.libertchan.service.DiscussionThreadService;
 import kaboni.libertchan.service.MessageService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -22,19 +24,25 @@ public class MessageController {
 	
 	@Autowired
 	private MessageService service;
+	
+	@Autowired
+	private DiscussionThreadService discussionThreadService;
 
 	@GetMapping("/all")
 	public List<Message> findAll() {
 		return service.findAll();
 	}
 	
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Message> findAllByOrderByDateDesc() {
 		return service.findAllByOrderByDateDesc();
 	}
 	
-	
+	@GetMapping("/topic/{topicId}")
+	public List<Message> findByTopicId(@PathVariable Long topicId){
+		DiscussionThread associateDiscussionThread = discussionThreadService.findByThreadId(topicId).orElse(null);
+		return service.findByDiscussionThread(associateDiscussionThread);
+	}
 	
 	@GetMapping("/number/{postNumber}")
 	public Message findByPostNumber(@PathVariable Long postNumber) {

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class DiscussionThread {
 	
@@ -36,6 +38,7 @@ public class DiscussionThread {
 	@OneToMany(mappedBy = "discussionThread", cascade = CascadeType.PERSIST)
 	private List<Message> messages;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Channel channel;
 

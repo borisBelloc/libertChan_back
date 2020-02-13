@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kaboni.libertchan.dao.DiscussionThreadJpaRepository;
+import kaboni.libertchan.models.Channel;
 import kaboni.libertchan.models.DiscussionThread;
 
 @Service
@@ -21,6 +22,10 @@ public class DiscussionThreadService {
 	
 	public Optional<DiscussionThread> findByThreadId(Long id) {
 		return repository.findById(id);
+	}
+	
+	public List<DiscussionThread> findByChannel(Channel channel){
+		return repository.findByChannel(channel);
 	}
 	
 	public DiscussionThread save(DiscussionThread discussionThread) {

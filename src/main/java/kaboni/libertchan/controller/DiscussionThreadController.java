@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import kaboni.libertchan.models.Channel;
 import kaboni.libertchan.models.DiscussionThread;
+import kaboni.libertchan.service.ChannelService;
 import kaboni.libertchan.service.DiscussionThreadService;
-import kaboni.libertchan.service.ImageService;
-import kaboni.libertchan.service.MessageService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -27,16 +28,19 @@ public class DiscussionThreadController {
 	private DiscussionThreadService service;
 	
 	@Autowired
-	private MessageService messageService;
-	
-	@Autowired
-	private ImageService imageService;
+	private ChannelService channelService;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(DiscussionThreadController.class);
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<DiscussionThread> findAll() {
 		return service.findAll();
+	}
+	
+	@GetMapping("/channel/{channelName}")
+	public List<DiscussionThread> findByChannel(@PathVariable String channelName) {
+		Channel associateChannel = channelService.findByShortName(channelName).orElse(null);
+		return service.findByChannel(associateChannel);
 	}
 	
 	@GetMapping("/{id}")
@@ -46,24 +50,13 @@ public class DiscussionThreadController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public DiscussionThread save(@RequestBody DiscussionThread discussionThread) {
+	public DiscussionThread save(@RequestBody DiscussionThread discussionThread, @RequestParam String channel) {
 		LOG.warn("création d'un topic");
+		Channel associateChannel = channelService.findByShortName(channel).orElse(null);
+		discussionThread.setChannel(associateChannel);
 		return service.save(discussionThread);
 	}
 	
-	
-	/*@RequestMapping(method = RequestMethod.POST)
-	public DiscussionThread save(@RequestBody DiscussionThread discussionThread) {
-		LOG.warn("création d'un topic");
-		for(Message message : discussionThread.getMessages()) {
-			//LOG.warn(message.toString());
-			message.setImage(imageService.save(message.getImage()));
-			messageService.save(message);
-		}
-
-		return service.save(discussionThread);
-	}
-	*/
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@PathVariable DiscussionThread discussionThread) {
 		service.delete(discussionThread);
