@@ -23,9 +23,9 @@ public class BannedUserController {
 	@Autowired
 	private BannedUserService service;
 	
+	
+	@PreAuthorize("hasAuthority('READ_IP')")
 	@RequestMapping(method = RequestMethod.GET)
-	
-	
 	public List<BannedUser> findAll(){
 		return service.findAll();
 	}

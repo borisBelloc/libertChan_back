@@ -34,6 +34,7 @@ public class ReservedPseudoController {
 	public ReservedPseudo findByPseudo(@PathVariable String pseudo) {
 		return service.findByPseudo(pseudo).orElse(null);
 	}
+	
 	@GetMapping("/{id}")
 	public ReservedPseudo findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);

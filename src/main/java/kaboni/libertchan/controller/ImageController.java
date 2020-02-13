@@ -22,7 +22,7 @@ public class ImageController {
 	@Autowired
 	private ImageService service;
 	
-	@PreAuthorize("hasAuthority('READ_IMAGES')")
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Image> findAll() {
 		return service.findAll();
@@ -32,7 +32,7 @@ public class ImageController {
 	public Image findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
 	}
-	@PreAuthorize("hasAuthority('POST_IMAGES')")
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public Image save(@PathVariable Image image) {
 		return service.save(image);

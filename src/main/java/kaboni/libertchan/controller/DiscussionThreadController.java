@@ -23,7 +23,7 @@ public class DiscussionThreadController {
 	@Autowired
 	private DiscussionThreadService service;
 	
-	@PreAuthorize("hasAuthority('READ_THREAD')")
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<DiscussionThread> findAll() {
 		return service.findAll();
@@ -34,7 +34,7 @@ public class DiscussionThreadController {
 		return service.findByThreadId(id).orElse(null);
 	}
 	
-	@PreAuthorize("hasAuthority('CREATE_THREAD')")
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public DiscussionThread save(@RequestBody DiscussionThread discussionThread) {
 		return service.save(discussionThread);
