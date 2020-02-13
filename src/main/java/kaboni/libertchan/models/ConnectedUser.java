@@ -38,6 +38,7 @@ public class ConnectedUser {
 	}
 
 	@OneToMany
+	@JoinColumn(name = "connected_user_id")
 	private List<Message> messages;
 	
 	@ManyToOne

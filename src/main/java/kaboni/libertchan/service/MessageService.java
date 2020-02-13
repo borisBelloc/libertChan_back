@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kaboni.libertchan.dao.MessageJpaRepository;
-import kaboni.libertchan.models.Image;
+import kaboni.libertchan.models.DiscussionThread;
 import kaboni.libertchan.models.Message;
 
 @Service
@@ -16,9 +16,16 @@ public class MessageService {
 	@Autowired
 	private MessageJpaRepository repository;
 	
+	
+
+	public List<Message> findAllByOrderByDateDesc() {
+		return repository.findAllByOrderByDateDesc();
+	}
+	
+	
+	
 	public Optional<Message> findByPostNumber(Long postNumber) {
 		return repository.findByPostNumber(postNumber);
-
 	}
 	
 	public Optional<Message> findById(Long id){
@@ -35,6 +42,13 @@ public class MessageService {
 	
 	public void delete(Message message) {
 		repository.delete(message);
+	}
+
+
+
+	public List<Message> findByDiscussionThread(DiscussionThread discussionThread) {
+		// TODO Auto-generated method stub
+		return repository.findByDiscussionThread(discussionThread);
 	}
 	
 }

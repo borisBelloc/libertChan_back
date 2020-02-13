@@ -3,12 +3,15 @@ package kaboni.libertchan.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class DiscussionThread {
@@ -32,9 +35,10 @@ public class DiscussionThread {
 	@Column
 	private Integer imageCount;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "discussionThread", cascade = CascadeType.PERSIST)
 	private List<Message> messages;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Channel channel;
 
