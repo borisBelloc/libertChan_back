@@ -47,4 +47,11 @@ public class ConnectedUserController {
 		service.changePassword(id, password);
 	}
 	
+	@PreAuthorize("hasAuthority('SELECT_IP')")
+	@GetMapping("/ip/{ip}")
+	public ConnectedUser findByIp(@PathVariable String ip) {
+		return service.findByIp(ip).orElse(null);
+	}
+
+	
 }

@@ -26,6 +26,17 @@ public class ConnectedUser {
 	@Column
 	private Integer accessLevel;
 	
+	@Column
+	private String ip;
+	
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
 	@OneToMany
 	private List<Message> messages;
 	

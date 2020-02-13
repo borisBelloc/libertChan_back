@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import kaboni.libertchan.models.ReservedPseudo;
 import kaboni.libertchan.service.ReservedPseudoService;
 
@@ -37,6 +38,14 @@ public class ReservedPseudoController {
 	public ReservedPseudo findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
 	}
+	
+	
+	@PreAuthorize("hasAuthority('SELECT_IP')")
+	@GetMapping("/ip/{ip}")
+	public ReservedPseudo findByIp(@PathVariable String ip) {
+		return service.findByIp(ip).orElse(null);
+	}
+
 	
 	}
 

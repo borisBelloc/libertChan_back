@@ -34,21 +34,32 @@ private static final Logger LOG = LoggerFactory.getLogger(initializeData.class);
 		Right readUsers = new Right("READ_USERS");
 		Right createUsers = new Right("CREATE_USERS");
 		Right deleteUsers = new Right("DELETE_USERS");
+		Right grantJanitor = new Right("GRANT_JANITOR");
+		Right grantModerator = new Right("GRANT_MODERATOR");
+		
 		
 		rightRepository.save(readUsers);
 		rightRepository.save(createUsers);
 		rightRepository.save(deleteUsers);
+		rightRepository.save(grantJanitor);
+		rightRepository.save(grantModerator);
 
 		// Roles creation
 		Role admin = new Role("ADMIN");
 		admin.addRight(readUsers);
 		admin.addRight(createUsers);
 		admin.addRight(deleteUsers);
+		admin.addRight(grantJanitor);
+		admin.addRight(grantModerator);
+		
+		
+		
 		
 		Role moderator = new Role("MODERATOR");
 		moderator.addRight(readUsers);
 		moderator.addRight(createUsers);
 		moderator.addRight(deleteUsers);
+		moderator.addRight(grantJanitor);
 		
 		
 		Role janitor = new Role("JANITOR");

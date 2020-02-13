@@ -1,12 +1,14 @@
 package kaboni.libertchan.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kaboni.libertchan.dao.ReservedPseudoJpaRepository;
+
 import kaboni.libertchan.models.ReservedPseudo;
 
 @Service
@@ -18,6 +20,10 @@ public class ReservedPseudoService {
 	public Optional<ReservedPseudo> findByPseudo(String pseudo){
 		return repository.findByPseudo(pseudo);
 		
+	}
+	
+	public Optional<ReservedPseudo> findByIp(String ip) {
+		return repository.findByIp(ip);
 	}
 	
 	public Optional<ReservedPseudo> findById(long id){
