@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kaboni.libertchan.models.DiscussionThread;
@@ -56,6 +57,12 @@ public class MessageController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public Message save(@RequestBody Message message) {
+		return service.save(message);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, path = "/topic/{topicId}")
+	public Message saveWithDiscussionThread(@RequestBody Message message, @PathVariable Long topicId) {
+		message.setDiscussionThread(discussionThreadService.findByThreadId(topicId).orElse(null));
 		return service.save(message);
 	}
 	
