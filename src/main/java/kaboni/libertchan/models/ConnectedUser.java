@@ -106,6 +106,9 @@ public class ConnectedUser {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	public ConnectedUser() {
+	
+	}
 	
 	
 
