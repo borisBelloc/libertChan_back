@@ -3,6 +3,7 @@ package kaboni.libertchan.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,11 +34,13 @@ public class ChannelController {
 	}
 	*/
 	
+	@PreAuthorize("hasAuthority('CREATE_CHANNEL')")
 	@RequestMapping(method = RequestMethod.POST)
 	public Channel save(@PathVariable Channel channel) {
 		return service.save(channel);
 	}
 	
+	@PreAuthorize("hasAuthority('DELETE_CHANNEL')")
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@PathVariable Channel channel) {
 		service.delete(channel);

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -66,6 +67,7 @@ public class MessageController {
 		return service.save(message);
 	}
 	
+	@PreAuthorize("hasAuthority('DELET_MESSAGES')")
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@PathVariable Message message) {
 		service.delete(message);

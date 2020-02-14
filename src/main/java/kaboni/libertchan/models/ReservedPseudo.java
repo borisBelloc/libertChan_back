@@ -15,6 +15,17 @@ public class ReservedPseudo {
 	private String pseudo;
 	
 	@Column
+	private String ip;
+	
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	@Column
 	private LocalDate expirationDate;
 	
 	@ManyToOne

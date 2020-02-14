@@ -3,6 +3,7 @@ package kaboni.libertchan.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ public class ImageController {
 	@Autowired
 	private ImageService service;
 	
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Image> findAll() {
 		return service.findAll();
@@ -35,7 +37,7 @@ public class ImageController {
 	public Image save(@PathVariable Image image) {
 		return service.save(image);
 	}
-	
+	@PreAuthorize("hasAuthority('DELETE_IMAGES')")
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@PathVariable Image image) {
 		service.delete(image);
