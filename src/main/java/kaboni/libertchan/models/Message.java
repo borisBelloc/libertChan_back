@@ -15,6 +15,7 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 @Entity
 public class Message {
@@ -35,7 +36,7 @@ public class Message {
 	@Column
 	private Boolean isFirstMessage;
 	
-	@Column
+	@Column(length = 1000)
 	private String textContent;
 	
 	@OneToOne(cascade = CascadeType.PERSIST)
