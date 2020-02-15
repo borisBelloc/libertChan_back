@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kaboni.libertchan.models.Channel;
 import kaboni.libertchan.models.DiscussionThread;
+import kaboni.libertchan.models.Message;
 import kaboni.libertchan.service.ChannelService;
 import kaboni.libertchan.service.DiscussionThreadService;
 
@@ -33,10 +34,17 @@ public class DiscussionThreadController {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(DiscussionThreadController.class);
 	
+//	@GetMapping("/all")
 	@RequestMapping(method = RequestMethod.GET)
 	public List<DiscussionThread> findAll() {
 		return service.findAll();
 	}
+	
+//	@RequestMapping(method = RequestMethod.GET)
+//	public List<DiscussionThread> findAllByOrderByDateDesc() {
+//		return service.findAllByOrderByDateDesc();
+//	}
+	
 	
 	@GetMapping("/channel/{channelName}")
 	public List<DiscussionThread> findByChannel(@PathVariable String channelName) {
