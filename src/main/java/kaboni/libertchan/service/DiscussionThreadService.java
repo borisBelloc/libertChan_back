@@ -21,9 +21,9 @@ public class DiscussionThreadService {
 		return repository.findAll();
 	}
 	
-//	public List<DiscussionThread> findAllByOrderByDateDesc() {
-//		return repository.findAllByOrderByDateDesc();
-//	}
+	public List<DiscussionThread> findAllByOrderByDateDesc() {
+		return repository.findAllByOrderByDateDesc();
+	}
 	
 	
 	public Optional<DiscussionThread> findByThreadId(Long id) {

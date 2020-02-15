@@ -35,6 +35,9 @@ public class DiscussionThread {
 	@Column
 	private Integer imageCount;
 	
+	@Column
+	private Date date;
+	
 	@OneToMany(mappedBy = "discussionThread", cascade = CascadeType.PERSIST)
 	private List<Message> messages;
 	
@@ -104,6 +107,14 @@ public class DiscussionThread {
 
 	public void setChannel(Channel channel) {
 		this.channel = channel;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }

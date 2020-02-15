@@ -34,16 +34,15 @@ public class DiscussionThreadController {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(DiscussionThreadController.class);
 	
-//	@GetMapping("/all")
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping("/all")
 	public List<DiscussionThread> findAll() {
 		return service.findAll();
 	}
 	
-//	@RequestMapping(method = RequestMethod.GET)
-//	public List<DiscussionThread> findAllByOrderByDateDesc() {
-//		return service.findAllByOrderByDateDesc();
-//	}
+	@RequestMapping(method = RequestMethod.GET)
+	public List<DiscussionThread> findAllByOrderByDateDesc() {
+		return service.findAllByOrderByDateDesc();
+	}
 	
 	
 	@GetMapping("/channel/{channelName}")
