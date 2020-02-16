@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,10 +46,18 @@ public class DiscussionThreadController {
 	}
 	
 	
-	@GetMapping("/channel/{channelName}")
+	@GetMapping("/channel/{channelName}/all")
 	public List<DiscussionThread> findByChannel(@PathVariable String channelName) {
 		Channel associateChannel = channelService.findByShortName(channelName).orElse(null);
 		return service.findByChannel(associateChannel);
+	}
+	
+	@GetMapping("/channel/{channelName}")
+//	@Query("SELECT * FROM DiscussionThread ORDER BY DiscussionThread.date DESC")
+//  select * from discussion_thread where channel_id ='20' order by date DESC
+	public List<DiscussionThread> findByChannelOrderByDateDesc(@PathVariable String channelName) {
+		Channel associateChannel = channelService.findByShortName(channelName).orElse(null);
+		return service.findByChannelOrderByDateDesc(associateChannel);
 	}
 	
 	@GetMapping("/{id}")

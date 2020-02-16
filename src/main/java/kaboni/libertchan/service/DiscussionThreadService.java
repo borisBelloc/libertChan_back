@@ -34,6 +34,10 @@ public class DiscussionThreadService {
 		return repository.findByChannel(channel);
 	}
 	
+	public List<DiscussionThread> findByChannelOrderByDateDesc(Channel channel){
+		return repository.findByChannelOrderByDateDesc(channel);
+	}
+	
 	public DiscussionThread save(DiscussionThread discussionThread) {
 		discussionThread.getMessages().forEach(m ->
 			m.setDiscussionThread(discussionThread)

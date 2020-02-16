@@ -16,4 +16,5 @@ public interface DiscussionThreadJpaRepository extends JpaRepository<DiscussionT
 	List<DiscussionThread> findByChannel(Channel channel);
 //	public Optional<DiscussionThread> findByThreadId(Long threadId);
 	public List<DiscussionThread> findAllByOrderByDateDesc();
+	List<DiscussionThread> findByChannelOrderByDateDesc(Channel channel);
 }
