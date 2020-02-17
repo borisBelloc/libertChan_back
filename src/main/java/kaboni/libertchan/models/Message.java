@@ -1,5 +1,6 @@
 package kaboni.libertchan.models;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -25,8 +26,8 @@ public class Message {
 	private Long id;
 	
 	@Column
-	private Date date;
-	
+	private LocalDateTime date;
+
 	@Column
 	private Long postNumber;
 	
@@ -59,11 +60,11 @@ public class Message {
 		this.id = id;
 	}
 
-	public Date getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 

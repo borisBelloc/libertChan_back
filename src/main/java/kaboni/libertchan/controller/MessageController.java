@@ -1,5 +1,6 @@
 package kaboni.libertchan.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,6 +65,7 @@ public class MessageController {
 	@RequestMapping(method = RequestMethod.POST, path = "/topic/{topicId}")
 	public Message saveWithDiscussionThread(@RequestBody Message message, @PathVariable Long topicId) {
 		message.setDiscussionThread(discussionThreadService.findByThreadId(topicId).orElse(null));
+		message.setDate(LocalDateTime.now());
 		return service.save(message);
 	}
 	
