@@ -71,9 +71,16 @@ public class DiscussionThreadController {
 	@RequestMapping(method = RequestMethod.POST)
 	public DiscussionThread save(@RequestBody DiscussionThread discussionThread, @RequestParam String channel) {
 		LOG.warn("création d'un topic");
+		
+		Message initMessage = discussionThread.getMessages().get(0);
+		
 		Channel associateChannel = channelService.findByShortName(channel).orElse(null);
 		discussionThread.setChannel(associateChannel);
-		discussionThread.setDate(LocalDateTime.now());
+		
+		LocalDateTime creationDate = LocalDateTime.now();
+		discussionThread.setDate(creationDate);
+		initMessage.setDate(creationDate);
+		
 		return service.save(discussionThread);
 	}
 	
