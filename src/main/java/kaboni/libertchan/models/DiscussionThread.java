@@ -1,7 +1,6 @@
 package kaboni.libertchan.models;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -37,6 +37,7 @@ public class DiscussionThread {
 	private Integer imageCount;
 	
 	@Column
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime date;
 	
 	@OneToMany(mappedBy = "discussionThread", cascade = CascadeType.PERSIST)

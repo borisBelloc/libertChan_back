@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
@@ -26,6 +27,7 @@ public class Message {
 	private Long id;
 	
 	@Column
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime date;
 
 	@Column
