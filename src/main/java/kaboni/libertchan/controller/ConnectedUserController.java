@@ -19,7 +19,7 @@ import kaboni.libertchan.models.ConnectedUser;
 import kaboni.libertchan.service.ConnectedUserService;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/users")
 public class ConnectedUserController {

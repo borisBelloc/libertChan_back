@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import kaboni.libertchan.models.Channel;
 import kaboni.libertchan.service.ChannelService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/channels")
 public class ChannelController {

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kaboni.libertchan.models.ReservedPseudo;
 import kaboni.libertchan.service.ReservedPseudoService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/users/reserved")
 public class ReservedPseudoController {

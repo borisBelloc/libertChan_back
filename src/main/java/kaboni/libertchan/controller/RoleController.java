@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kaboni.libertchan.models.Role;
 import kaboni.libertchan.service.RoleService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/roles")
 public class RoleController {
