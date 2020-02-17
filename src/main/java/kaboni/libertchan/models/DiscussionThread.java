@@ -28,7 +28,7 @@ public class DiscussionThread {
 	private Long authorId;
 	
 	@Column
-	private Date timer;
+	private Long timer;
 	
 	@Column
 	private Integer messageCount;
@@ -37,7 +37,7 @@ public class DiscussionThread {
 	private Integer imageCount;
 	
 	@Column
-	private Date date;
+	private LocalDateTime date;
 	
 	@OneToMany(mappedBy = "discussionThread", cascade = CascadeType.PERSIST)
 	private List<Message> messages;
@@ -70,11 +70,11 @@ public class DiscussionThread {
 		this.authorId = authorId;
 	}
 
-	public Date getTimer() {
+	public Long getTimer() {
 		return timer;
 	}
 
-	public void setTimer(Date timer) {
+	public void setTimer(Long timer) {
 		this.timer = timer;
 	}
 
@@ -110,11 +110,11 @@ public class DiscussionThread {
 		this.channel = channel;
 	}
 	
-	public Date getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 

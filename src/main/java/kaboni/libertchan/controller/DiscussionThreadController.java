@@ -1,7 +1,9 @@
 package kaboni.libertchan.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+import org.hibernate.type.LocalDateTimeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +73,7 @@ public class DiscussionThreadController {
 		LOG.warn("création d'un topic");
 		Channel associateChannel = channelService.findByShortName(channel).orElse(null);
 		discussionThread.setChannel(associateChannel);
+		discussionThread.setDate(LocalDateTime.now());
 		return service.save(discussionThread);
 	}
 	
