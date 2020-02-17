@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.type.LocalDateTimeType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -64,8 +65,12 @@ public class MessageController {
 	
 	@RequestMapping(method = RequestMethod.POST, path = "/topic/{topicId}")
 	public Message saveWithDiscussionThread(@RequestBody Message message, @PathVariable Long topicId) {
-		message.setDiscussionThread(discussionThreadService.findByThreadId(topicId).orElse(null));
-		message.setDate(LocalDateTime.now());
+		DiscussionThread associateDiscussionThread = discussionThreadService.findByThreadId(topicId).orElse(null);
+		LocalDateTime actualDate = LocalDateTime.now();
+		associateDiscussionThread.setDate(actualDate);
+		discussionThreadService.save(associateDiscussionThread);
+		message.setDiscussionThread(associateDiscussionThread);
+		message.setDate(actualDate);
 		return service.save(message);
 	}
 	

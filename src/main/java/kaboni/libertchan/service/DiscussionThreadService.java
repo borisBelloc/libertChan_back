@@ -48,7 +48,5 @@ public class DiscussionThreadService {
 	public void delete(DiscussionThread discussionThread) {
 		repository.delete(discussionThread);
 	}
-	
-	
 
 }
