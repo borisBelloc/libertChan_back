@@ -15,7 +15,8 @@ import kaboni.libertchan.models.BannedUser;
 
 import kaboni.libertchan.service.BannedUserService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/users/banned")
 public class BannedUserController {

@@ -21,7 +21,7 @@ import kaboni.libertchan.models.Message;
 import kaboni.libertchan.service.DiscussionThreadService;
 import kaboni.libertchan.service.MessageService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/messages")
 public class MessageController {
