@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import exception.AlreadyExistsException;
 import exception.NotFoundException;
 import kaboni.libertchan.dao.ConnectedUserJpaRepository;
-
 import kaboni.libertchan.models.ConnectedUser;
 import kaboni.libertchan.models.Role;
 
@@ -39,8 +38,6 @@ public class ConnectedUserService  {
 		return repository.findAll();
 	}
 	
-	
-	
 	public ConnectedUser create(ConnectedUser user) throws AlreadyExistsException {
 		if (user.getId() != null) {
 			throw new AlreadyExistsException("Can't save. User has an id : " + user.getId());
@@ -50,6 +47,7 @@ public class ConnectedUserService  {
 		
 		return repository.save(user);
 	}
+	
 	public ConnectedUser changePassword(Long id, String password) throws NotFoundException {
 		ConnectedUser user = repository.findById(id)
 			.orElseThrow(() -> new NotFoundException("User doesn't exist. (id = " + id + ")"));

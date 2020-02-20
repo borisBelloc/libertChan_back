@@ -11,7 +11,7 @@ public class ConnectedUser {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(name = "mail")
+	@Column(name = "mail", unique = true)
 	private String email;
 	
 	@Column
