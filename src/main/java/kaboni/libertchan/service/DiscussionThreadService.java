@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import kaboni.libertchan.dao.DiscussionThreadJpaRepository;
 import kaboni.libertchan.models.Channel;
 import kaboni.libertchan.models.DiscussionThread;
-import kaboni.libertchan.models.Message;
 
 @Service
 public class DiscussionThreadService {

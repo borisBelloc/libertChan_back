@@ -3,11 +3,9 @@ package kaboni.libertchan.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.hibernate.type.LocalDateTimeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,6 +71,15 @@ public class DiscussionThreadController {
 		LOG.warn("création d'un topic");
 		
 		Message initMessage = discussionThread.getMessages().get(0);
+		
+//		LOG.warn("AUTHOR AVANT : " + initMessage.getAuthor());
+		
+		if (initMessage.getAuthor() == null || initMessage.getAuthor() == "") {
+			initMessage.setAuthor("anonyme");
+		}
+		
+//		LOG.warn("AUTHOR APRES : " + initMessage.getAuthor());
+		
 		
 		Channel associateChannel = channelService.findByShortName(channel).orElse(null);
 		discussionThread.setChannel(associateChannel);
