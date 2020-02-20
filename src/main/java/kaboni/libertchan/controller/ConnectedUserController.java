@@ -21,7 +21,7 @@ import kaboni.libertchan.service.ConnectedUserService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class ConnectedUserController {
 
 	@Autowired
@@ -32,7 +32,7 @@ public class ConnectedUserController {
 		return service.findAll();
 	}
 	
-	@GetMapping("/api/email/{email}/")
+	@GetMapping("/email/{email}/")
 	public ConnectedUser findByEmail(@PathVariable String email) {
 		return service.findByEmail(email).orElse(null);
 	}

@@ -1,11 +1,15 @@
 package kaboni.libertchan.service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +22,7 @@ import kaboni.libertchan.models.Role;
 
 @Service
 @Transactional
-public class ConnectedUserService  {
+public class ConnectedUserService implements UserDetailsService  {
 	
 	@Autowired
 	private ConnectedUserJpaRepository repository;
@@ -83,6 +87,14 @@ public class ConnectedUserService  {
 		
 		return repository.findByIp(ip);
 	}
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Objects.requireNonNull(username);
+        ConnectedUser user = repository.findByMainPseudo(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return user;
+    }
 
 	
 	
