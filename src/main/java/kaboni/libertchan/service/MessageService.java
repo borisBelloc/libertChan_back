@@ -44,11 +44,13 @@ public class MessageService {
 		repository.delete(message);
 	}
 
-
-
 	public List<Message> findByDiscussionThread(DiscussionThread discussionThread) {
 		// TODO Auto-generated method stub
 		return repository.findByDiscussionThread(discussionThread);
+	}
+	
+	public List<Message> findLastMessages(int nbMessages){
+		return repository.findLastMessages(nbMessages);
 	}
 	
 }

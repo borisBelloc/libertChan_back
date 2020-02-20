@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import kaboni.libertchan.models.DiscussionThread;
@@ -17,6 +19,9 @@ public interface MessageJpaRepository extends JpaRepository<Message, Long> {
 
 //	TODO: faire une methode <find last 5 messages> avec query definie: 
 	// Utiliser 'limit +/-5' @Query("SELECT * FROM foo ORDER BY date ASC")
+	
+	@Query(value = "SELECT * FROM Message ORDER BY date DESC LIMIT :nbMessages", nativeQuery = true)
+	public List<Message> findLastMessages(@Param("nbMessages") int nbMessages);
 
 	
 }

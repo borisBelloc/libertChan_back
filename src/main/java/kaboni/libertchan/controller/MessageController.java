@@ -39,6 +39,11 @@ public class MessageController {
 		return service.findAllByOrderByDateDesc();
 	}
 	
+	@GetMapping("/last/{nbMessages}")
+	public List<Message> findLastMessages(@PathVariable int nbMessages) {
+		return service.findLastMessages(nbMessages);
+	}
+	
 	@GetMapping("/topic/{topicId}")
 	public List<Message> findByTopicId(@PathVariable Long topicId){
 		DiscussionThread associateDiscussionThread = discussionThreadService.findByThreadId(topicId).orElse(null);
