@@ -32,7 +32,7 @@ private static final Logger LOG = LoggerFactory.getLogger(initializeData.class);
 	public void start() {
 		// Rights creation
 		
-		Right readUsers = new Right("READ_USERS");
+		/*Right readUsers = new Right("READ_USERS");
 		Right createUsers = new Right("CREATE_USERS");
 		Right deleteUsers = new Right("DELETE_USERS");
 		Right grantJanitor = new Right("GRANT_JANITOR");
@@ -82,8 +82,8 @@ private static final Logger LOG = LoggerFactory.getLogger(initializeData.class);
 		ConnectedUser moderatorUser = new ConnectedUser("moderator", "password", "jl.modeau@ss.de", moderator);
 		ConnectedUser janitornUser = new ConnectedUser("janitor", "password", "jl.adminne@ss.fr", janitor);
 		ConnectedUser standardUser = new ConnectedUser("user", "password", "jl.illouzeurt@ss.de", user);
-/*
-		try {
+
+		/*try {
 			connectedUserService.create(adminUser);
 			connectedUserService.create(moderatorUser);
 			connectedUserService.create(janitornUser);
