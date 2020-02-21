@@ -15,9 +15,13 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
+
 public class Message {
 	
 	@Id
@@ -43,8 +47,8 @@ public class Message {
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@NotFound(action=NotFoundAction.IGNORE)
 	private Image image;
-	
-	@JsonIgnore
+
+	@JsonIgnoreProperties("messages")
 	@ManyToOne
 	@JoinColumn(name = "discussion_thread_id")
 	private DiscussionThread discussionThread;
