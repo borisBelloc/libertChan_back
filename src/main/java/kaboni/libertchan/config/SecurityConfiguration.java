@@ -34,6 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+<<<<<<< Updated upstream
         http.csrf().disable()
        
                 .authorizeRequests().anyRequest().authenticated()
@@ -56,3 +57,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 }
     
     
+=======
+        http.csrf().and().cors()
+                .disable()
+                .authorizeRequests()
+                .anyRequest().permitAll();
+    }
+}
+>>>>>>> Stashed changes
