@@ -34,11 +34,11 @@ public class ConnectedUserController {
 	@Autowired
 	private ConnectedUserService service;
 	
-	/*@RequestMapping("/login")
+	@RequestMapping("/login")
     public boolean login(@RequestBody User user) {
         return
           user.getUsername().equals("user") && user.getPassword().equals("password");
-    }*/
+    }
      
     @RequestMapping("/user")
     public Principal user(HttpServletRequest request) {
@@ -70,8 +70,13 @@ public class ConnectedUserController {
 	
 	@PreAuthorize("hasAuthority('SELECT_IP')")
 	@GetMapping("/ip/{ip}")
-	public ConnectedUser findByIp(@PathVariable String ip) {
-		return service.findByIp(ip).orElse(null);
+	public List<ConnectedUser> findByIp(@PathVariable String ip) {
+		return service.findByIp(ip);
+	}
+	
+	@GetMapping("/pseudo/{pseudo}")
+	public ConnectedUser findByMainPseudo(@PathVariable String pseudo) throws NotFoundException {
+		return service.findByMainPseudo(pseudo);
 	}
 
 	

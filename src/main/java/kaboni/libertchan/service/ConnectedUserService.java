@@ -77,11 +77,18 @@ public class ConnectedUserService  {
 		user.setPassword(encodedPassword);
 	}
 
-	public Optional<ConnectedUser> findByIp(String ip) {
+	public List<ConnectedUser> findByIp(String ip) {
 		
 		return repository.findByIp(ip);
 	}
 
+	public ConnectedUser findByMainPseudo(String pseudo) throws NotFoundException {
+		return  repository.findByMainPseudo(pseudo)
+				.orElseThrow(() -> new NotFoundException("User doesn't exist. (mainPseudo = " + pseudo + ")"));
+		
+		
+		
+	}
 	
 	
 }

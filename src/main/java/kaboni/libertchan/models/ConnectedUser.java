@@ -17,7 +17,8 @@ public class ConnectedUser {
 	@Column
 	private Integer karma;
 	
-	@Column
+	// brice is relou 
+	@Column(unique = true)
 	private String mainPseudo;
 	
 	@Column
@@ -40,6 +41,9 @@ public class ConnectedUser {
 	@OneToMany
 	@JoinColumn(name = "connected_user_id")
 	private List<Message> messages;
+	
+	@OneToMany
+	private List<ReservedPseudo> reservedPseudos;
 	
 	@ManyToOne
 	private Role role;

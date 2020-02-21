@@ -13,7 +13,7 @@ import kaboni.libertchan.models.Role;
 public interface ConnectedUserJpaRepository extends JpaRepository<ConnectedUser, Long> {
 	public Optional<ConnectedUser> findByEmail(String email);
 	
-	public Optional<ConnectedUser> findByIp(String ip);
+	public List<ConnectedUser> findByIp(String ip);
 
 	public List<ConnectedUser> searchUser(String mainPseudo, String password, String email, Role admin);
 
