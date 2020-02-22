@@ -13,7 +13,6 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class DiscussionThread {
@@ -44,7 +43,7 @@ public class DiscussionThread {
 	@OneToMany(mappedBy = "discussionThread", cascade = CascadeType.PERSIST)
 	private List<Message> messages;
 	
-	@JsonIgnoreProperties("threads")
+	@JsonIgnore
 	@ManyToOne
 	private Channel channel;
 
