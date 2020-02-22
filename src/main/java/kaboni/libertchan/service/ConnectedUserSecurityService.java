@@ -3,8 +3,6 @@ package kaboni.libertchan.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,7 +17,6 @@ import kaboni.libertchan.models.ConnectedUser;
 import kaboni.libertchan.models.Right;
 
 @Service
-@Transactional
 public class ConnectedUserSecurityService implements UserDetailsService {
 
 	@Autowired

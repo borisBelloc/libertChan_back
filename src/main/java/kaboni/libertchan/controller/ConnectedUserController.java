@@ -1,19 +1,14 @@
 package kaboni.libertchan.controller;
 
-import java.security.Principal;
-import java.util.Base64;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,25 +23,9 @@ import kaboni.libertchan.service.ConnectedUserService;
 @RestController
 @RequestMapping("/users")
 public class ConnectedUserController {
-	
-	
 
 	@Autowired
 	private ConnectedUserService service;
-	
-	/*@RequestMapping("/login")
-    public boolean login(@RequestBody User user) {
-        return
-          user.getUsername().equals("user") && user.getPassword().equals("password");
-    }*/
-     
-    @RequestMapping("/user")
-    public Principal user(HttpServletRequest request) {
-        String authToken = request.getHeader("Authorization")
-          .substring("Basic".length()).trim();
-        return () ->  new String(Base64.getDecoder()
-          .decode(authToken)).split(":")[0];
-    }
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<ConnectedUser> findAll() {
