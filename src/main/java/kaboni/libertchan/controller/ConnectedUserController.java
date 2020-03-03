@@ -23,6 +23,14 @@ import kaboni.libertchan.service.ConnectedUserService;
 @RestController
 @RequestMapping("/users")
 public class ConnectedUserController {
+	
+	
+	
+	@GetMapping(produces = "application/json")
+	@RequestMapping({ "/validateLogin" })
+	public ConnectedUser validateLogin() {
+		return new ConnectedUser("User successfully authenticated");
+	}
 
 	@Autowired
 	private ConnectedUserService service;
