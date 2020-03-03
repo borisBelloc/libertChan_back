@@ -90,7 +90,7 @@ public class MessageController {
 		associateDiscussionThread.setDate(actualDate);
 		discussionThreadService.save(associateDiscussionThread);
 		message.setDiscussionThread(associateDiscussionThread);
-		message.setDate(actualDate);
+//		message.setDate(actualDate);
 		return service.save(message);
 	}
 	

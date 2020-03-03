@@ -86,7 +86,7 @@ public class DiscussionThreadController {
 		
 		LocalDateTime creationDate = LocalDateTime.now();
 		discussionThread.setDate(creationDate);
-		initMessage.setDate(creationDate);
+//		initMessage.setDate(creationDate);
 		
 		return service.save(discussionThread);
 	}

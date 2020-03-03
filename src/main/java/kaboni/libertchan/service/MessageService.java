@@ -46,7 +46,7 @@ public class MessageService {
 
 	public List<Message> findByDiscussionThread(DiscussionThread discussionThread) {
 		// TODO Auto-generated method stub
-		return repository.findByDiscussionThread(discussionThread);
+		return repository.findByDiscussionThreadOrderByDateDesc(discussionThread);
 	}
 	
 	public List<Message> findLastMessages(int nbMessages){
