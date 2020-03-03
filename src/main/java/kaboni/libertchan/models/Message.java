@@ -41,6 +41,9 @@ public class Message {
 	@Column
 	private Boolean isFirstMessage;
 	
+	@Column
+	private Boolean isSignaled;
+	
 	@Column(length = 1000)
 	private String textContent;
 	
@@ -126,6 +129,10 @@ public class Message {
 
 	public void setTextContent(String textContent) {
 		this.textContent = textContent;
+	}
+	
+	public void signal() {
+		this.isSignaled = true;
 	}
 
 }

@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -58,6 +59,14 @@ public class MessageController {
 	@GetMapping("/{id}")
 	public Message findById(@PathVariable Long id) {
 		return service.findById(id).orElse(null);
+	}
+	
+	@PostMapping("/signal/{id}")
+	public Message signal(@PathVariable Long id) {
+		Message message = service.findById(id).orElse(null);
+		message.signal();
+		return service.save(message);
+		
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
