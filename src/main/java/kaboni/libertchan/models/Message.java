@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
@@ -30,6 +31,7 @@ public class Message {
 	
 	@Column
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@CreationTimestamp
 	private LocalDateTime date;
 
 	@Column
