@@ -35,6 +35,11 @@ public class MessageController {
 		return service.findAll();
 	}
 	
+	@GetMapping("/signaled")
+	public List<Message> findSignaled() {
+		return service.findSignaled();
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Message> findAllByOrderByDateDesc() {
 		return service.findAllByOrderByDateDesc();
@@ -66,7 +71,6 @@ public class MessageController {
 		Message message = service.findById(id).orElse(null);
 		message.signal();
 		return service.save(message);
-		
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

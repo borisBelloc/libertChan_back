@@ -53,4 +53,8 @@ public class MessageService {
 		return repository.findLastMessages(nbMessages);
 	}
 	
+	public List<Message> findSignaled(){
+		return repository.findSignaled();
+	}
+	
 }

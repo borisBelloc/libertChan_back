@@ -22,6 +22,9 @@ public interface MessageJpaRepository extends JpaRepository<Message, Long> {
 	
 	@Query(value = "SELECT * FROM Message ORDER BY date DESC LIMIT :nbMessages", nativeQuery = true)
 	public List<Message> findLastMessages(@Param("nbMessages") int nbMessages);
+	
+	@Query(value = "SELECT * FROM Message WHERE is_signaled = true", nativeQuery = true)
+	public List<Message> findSignaled();
 
 	
 }
