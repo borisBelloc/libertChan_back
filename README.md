@@ -1,10 +1,11 @@
 # libertChan_back
 
 <center>
-
+   
 Front | Back
----| ---
-[:tophat:](https://github.com/kim7834/libertChan_Front) | [:bug:](https://github.com/borisBelloc/libertChan_back)
+--| --
+[-- :boat: --](https://github.com/kim7834/libertChan_Front) | [-- :see_no_evil: --](https://github.com/borisBelloc/libertChan_back)
+ 
 
 </center>
 
