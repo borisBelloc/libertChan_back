@@ -32,6 +32,10 @@ _allow to use custom username/password_
       </code>
    </pre>
 </details>
+
+##### Branch :
+
+- develop2 : test with Spring Security
   
 * open JDM setting : 
   - properties > Run/Debug Setting > New
