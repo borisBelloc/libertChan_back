@@ -33,10 +33,14 @@ _allow to use custom username/password_
    </pre>
 </details>
 
+ * open JDM setting : 
+  - properties > Run/Debug Setting > New
+  - inside `Arguments tab` add `-Dspring.profiles.active=dev` inside `VM arguments`
+
+
+
+
+<hr/> 
 ##### Branch :
 
 - develop2 : test with Spring Security
-  
-* open JDM setting : 
-  - properties > Run/Debug Setting > New
-  - inside `Arguments tab` add `-Dspring.profiles.active=dev` inside `VM arguments`
