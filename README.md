@@ -41,6 +41,7 @@ _allow to use custom username/password_
 
 
 <hr/> 
+
 ##### Branch :
 
 - develop2 : test with Spring Security
