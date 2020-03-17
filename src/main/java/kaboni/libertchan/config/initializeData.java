@@ -31,7 +31,7 @@ private static final Logger LOG = LoggerFactory.getLogger(initializeData.class);
 	@EventListener(ApplicationReadyEvent.class)
 	public void start() {
 		// Rights creation
-		
+		/*
 		Right readUsers = new Right("READ_USERS");
 		Right createUsers = new Right("CREATE_USERS");
 		Right deleteUsers = new Right("DELETE_USERS");
@@ -91,6 +91,6 @@ private static final Logger LOG = LoggerFactory.getLogger(initializeData.class);
 		} catch (AlreadyExistsException e) {
 			LOG.warn("Unable to initialize data, users already exist.");
 		}
-		
+		*/
 	}
 }

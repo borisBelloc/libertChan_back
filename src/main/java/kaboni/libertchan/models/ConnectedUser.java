@@ -36,20 +36,6 @@ public class ConnectedUser {
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
-	
-	private String status;
-
-	public ConnectedUser(String status) {
-		this.status = status;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
 	@OneToMany
 	@JoinColumn(name = "connected_user_id")
@@ -64,8 +50,6 @@ public class ConnectedUser {
 		this.email = email;
 		this.role = admin;
 	}
-	
-	
 
 	public Long getId() {
 		return id;

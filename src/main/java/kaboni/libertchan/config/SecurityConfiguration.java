@@ -21,16 +21,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private ConnectedUserSecurityService userSecurityService;
 	
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("username").password("{noop}password").roles("USER");
-	}
-	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeRequests().anyRequest().permitAll()
-                .and().httpBasic();
+                .authorizeRequests().anyRequest().permitAll();
     }
     @Bean
 	public PasswordEncoder createPasswordEncoderBean() {
